@@ -13,8 +13,17 @@ class Color(Enum):
 
 
 eff_gap = None
-eff_gap_max = 0.4
-winner_wanted = Color.ORANGE
+eff_gap_max = 0.1
+winner_wanted = Color.PURPLE
+
+"""
+map = 'map.png'
+map_info = 'mapinfobig.txt'
+"""
+
+map = 'small_map.png'
+map_info = 'mapinfosmall.txt'
+
 class Graph:
     def __init__(self):
         self.adjacency_list = {}
@@ -103,7 +112,7 @@ graph = Graph()
 
 #read data in from mapinfo.txt
 
-f=open('mapinfo.txt')
+f=open(map_info)
 lines=f.readlines()
 edges = ast.literal_eval(lines[0])
 colors = ast.literal_eval(lines[1])
@@ -130,7 +139,7 @@ num_per_district = int(num/districts)
 
 paths = graph.get_all_paths(0)
 
-img = cv2.imread('small_map.png') 
+img = cv2.imread(map) 
 
 i = 0
 for node in paths[0]:

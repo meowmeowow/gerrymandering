@@ -9,13 +9,13 @@ class Color(Enum):
     ORANGE = 186
 
 #from map.png get x,y,color of hexagons
-img = cv2.imread('small_map.png') 
+img = cv2.imread('') 
   
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
 
 gray[gray == 0] = 255
 
-_, threshold = cv2.threshold(gray, 240, 255, cv2.THRESH_BINARY) 
+_, threshold = cv2.threshold(gray, 250, 255, cv2.THRESH_BINARY) 
   #250 for map.png
   
 contours, _ = cv2.findContours( 
@@ -78,7 +78,7 @@ colors.append((points[len(points)-1][3],Color(points[len(points)-1][2]).name))
 
 
 # write to file
-f = open("mapinfo.txt", "a")
+f = open("", "a")
 f.write(str(edges)+'\n')
 f.write(str(colors) + '\n')
 f.write(str(points))
